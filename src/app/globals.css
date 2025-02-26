@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.react-calendar {
+    width: 100% !important;
+    border: none !important;
+    font-family: "Inter", sans-serif !important;
+  }
+  
+  .react-calendar__navigation__label__labelText {
+    font-weight: 600;
+  }
+
+  /* COUSTOMIZE SCROLLBAR */
+  
+  .react-calendar__tile--active {
+    background-color: #c3ebfa !important;
+    color: black !important;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+  }

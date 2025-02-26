@@ -1,0 +1,218 @@
+{
+  "fcc": {
+    "prefix": "fcc",
+    "body": [
+      "import './${TM_FILENAME_BASE/^(.)/${1:/downcase}/}.css'",
+      "",
+      "const ${1:${TM_FILENAME_BASE/(.)(.*)/${1:/capitalize}${2}/}} = () => {",
+      "  return (",
+      "    <div className='${TM_FILENAME_BASE/^(.)/${1:/downcase}/}'>${1:${TM_FILENAME_BASE/(.)(.*)/${1:/capitalize}${2}/}}</div>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE/(.)(.*)/${1:/capitalize}${2}/}}"
+    ],
+    "description": "Create an arrow component with css"
+  },
+  "fcs": {
+    "prefix": "fcs",
+    "body": [
+      "import './${TM_FILENAME_BASE/^(.)/${1:/downcase}/}.scss'",
+      "",
+      "function ${1:${TM_FILENAME_BASE/(.)(.*)/${1:/capitalize}${2}/}}(){",
+      "  return (",
+      "    <div className='${TM_FILENAME_BASE/^(.)/${1:/downcase}/}'>${1:${TM_FILENAME_BASE/(.)(.*)/${1:/capitalize}${2}/}}</div>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE/(.)(.*)/${1:/capitalize}${2}/}}"
+    ],
+    "description": "Create a functional component with Sass"
+  },
+  "acs": {
+    "prefix": "acs",
+    "body": [
+      "import './${TM_FILENAME_BASE/^(.)/${1:/downcase}/}.scss'",
+      "",
+      "const ${1:${TM_FILENAME_BASE/(.)(.*)/${1:/capitalize}${2}/}} = () => {",
+      "  return (",
+      "    <div className='${TM_FILENAME_BASE/^(.)/${1:/downcase}/}'>${1:${TM_FILENAME_BASE/(.)(.*)/${1:/capitalize}${2}/}}</div>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE/(.)(.*)/${1:/capitalize}${2}/}}"
+    ],
+    "description": "Create an arrow component with Sass"
+  },
+  "comp": {
+    "prefix": "comp",
+    "body": [
+      "const ${1:${TM_FILENAME_BASE/(.)(.*)/${1:/capitalize}${2}/}} = () => {",
+      "  return (",
+      "    <div>${1:${TM_FILENAME_BASE/(.)(.*)/${1:/capitalize}${2}/}}</div>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE/(.)(.*)/${1:/capitalize}${2}/}}"
+    ],
+    "description": "Create a component"
+  },
+  "compt": {
+    "prefix": "compt",
+    "body": [
+      "const ${1:${TM_FILENAME_BASE/(.)(.*)/${1:/capitalize}${2}/}} = () => {",
+      "  return (",
+      "    <div className=''>${1:${TM_FILENAME_BASE/(.)(.*)/${1:/capitalize}${2}/}}</div>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE/(.)(.*)/${1:/capitalize}${2}/}}"
+    ],
+    "description": "Create a component with tailwind classname"
+  },
+  "usst": {
+    "prefix": "usst",
+    "body": ["const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:initial})"],
+    "description": "useState hook with proper naming"
+  },
+  "usef": {
+    "prefix": "usef",
+    "body": [
+      "useEffect(() => {",
+      "  ${1:// effect}",
+      "  return () => {",
+      "    ${2:// cleanup}",
+      "  }",
+      "}, [${3:deps}])"
+    ],
+    "description": "useEffect with cleanup"
+  },
+  "npage": {
+    "prefix": "npage",
+    "body": [
+      "export default function Page() {",
+      "  return (",
+      "    <main className=''>",
+      "      ${1:content}",
+      "    </main>",
+      "  )",
+      "}"
+    ],
+    "description": "Next.js page component"
+  },
+  "napi": {
+    "prefix": "napi",
+    "body": [
+      "import { NextResponse } from 'next/server'",
+      "",
+      "export async function GET(request: Request) {",
+      "  try {",
+      "    return NextResponse.json({ ${1:data} })",
+      "  } catch (error) {",
+      "    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })",
+      "  }",
+      "}"
+    ],
+    "description": "Next.js API route"
+  },
+  "tprop": {
+    "prefix": "tprop",
+    "body": [
+      "type ${1:ComponentName}Props = {",
+      "  ${2:prop}: ${3:type}",
+      "}",
+      "",
+      "export default function ${1:ComponentName}({ ${2:prop} }: ${1:ComponentName}Props) {",
+      "  return (",
+      "    <div>",
+      "      ${4:content}",
+      "    </div>",
+      "  )",
+      "}"
+    ],
+    "description": "TypeScript component with props"
+  },
+  "lay": {
+    "prefix": "lay",
+    "body": [
+      "export default function Layout({",
+      "  children,",
+      "}: {",
+      "  children: React.ReactNode",
+      "}) {",
+      "  return (",
+      "    <div>",
+      "      ${1:header}",
+      "      <main>{children}</main>",
+      "      ${2:footer}",
+      "    </div>",
+      "  )",
+      "}"
+    ],
+    "description": "Layout component"
+  }, "hookls": {
+    "prefix": "hookls",
+    "body": [
+      "import { useState, useEffect } from 'react'",
+      "",
+      "const useLocalStorage = <T,>(key: string, initialValue: T) => {",
+      "  const [storedValue, setStoredValue] = useState<T>(() => {",
+      "    if (typeof window === 'undefined') return initialValue",
+      "",
+      "    try {",
+      "      const item = window.localStorage.getItem(key)",
+      "      return item ? JSON.parse(item) : initialValue",
+      "    } catch (error) {",
+      "      console.error(error)",
+      "      return initialValue",
+      "    }",
+      "  })",
+      "",
+      "  const setValue = (value: T | ((val: T) => T)) => {",
+      "    try {",
+      "      const valueToStore = value instanceof Function ? value(storedValue) : value",
+      "      setStoredValue(valueToStore)",
+      "      window.localStorage.setItem(key, JSON.stringify(valueToStore))",
+      "    } catch (error) {",
+      "      console.error(error)",
+      "    }",
+      "  }",
+      "",
+      "  return [storedValue, setValue] as const",
+      "}",
+      "",
+      "export default useLocalStorage"
+    ],
+    "description": "Local Storage custom hook with TypeScript"
+  }, "hookf": {
+    "prefix": "hookf",
+    "body": [
+      "const use${1:Fetch} = (url: string) => {",
+      "  const [data, setData] = useState(null)",
+      "  const [loading, setLoading] = useState(true)",
+      "  const [error, setError] = useState(null)",
+      "",
+      "  useEffect(() => {",
+      "    const fetchData = async () => {",
+      "      try {",
+      "        const res = await fetch(url)",
+      "        const json = await res.json()",
+      "        setData(json)",
+      "        setLoading(false)",
+      "      } catch (err) {",
+      "        setError(err)",
+      "        setLoading(false)",
+      "      }",
+      "    }",
+      "",
+      "    fetchData()",
+      "  }, [url])",
+      "",
+      "  return { data, loading, error }",
+      "}",
+      "",
+      "export default use${1:Fetch}"
+    ],
+    "description": "Fetch custom hook template"
+  },
+}
